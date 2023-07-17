@@ -12,7 +12,6 @@ const QUERY = gql`
         contact
         service
       }
-      id
     }
   }
 `
@@ -29,5 +28,5 @@ type AllTextProps = {
 
 export const allTexts = cache(async () => {
   const { allContents }: AllTextProps = await hygraph.request(QUERY)
-  return allContents
+  return allContents[0]
 })

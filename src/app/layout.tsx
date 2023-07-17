@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
+import { Header } from './_components/Header'
+import { Footer } from './_components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const montsserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Clinica Lidiane',
@@ -16,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body className={inter.className}>{children}</body>
+      <body className={montsserrat.className}>
+        <Header />
+        <main className="pt-14">{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }
