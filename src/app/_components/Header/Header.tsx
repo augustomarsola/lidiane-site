@@ -8,6 +8,7 @@ import {
   WhatsappLogo,
   X,
 } from '@phosphor-icons/react'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export function Header() {
@@ -51,7 +52,14 @@ export function Header() {
 
   return (
     <header className="fixed left-0 top-0 flex h-14 w-full items-center justify-between px-4">
-      <div>Logo</div>
+      <div className="flex-1">
+        <Image
+          src="/lidianeVerticalLogo.svg"
+          alt="Logo Lidiane Clinica"
+          width={225}
+          height={18}
+        />
+      </div>
       {!isMediumDevice && (
         <>
           <button
@@ -90,14 +98,14 @@ export function Header() {
       )}
       {isMediumDevice && (
         <>
-          <ul className="flex gap-4">
+          <ul className="flex flex-1 justify-center gap-4">
             {menuOptions.map((option) => (
               <li key={option.name}>
                 <a href={option.link}>{option.name}</a>
               </li>
             ))}
           </ul>
-          <ul className="flex gap-2">
+          <ul className="flex flex-1 justify-end gap-2">
             {socialMedias.map((socialMedia) => (
               <li key={socialMedia.name}>
                 <a href={socialMedia.link} title={socialMedia.name}>
