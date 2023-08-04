@@ -51,7 +51,7 @@ export function Header() {
   }
 
   return (
-    <header className="fixed left-0 top-0 flex h-14 w-full items-center justify-between px-4">
+    <header className="fixed left-0 top-0 flex h-14 w-full items-center justify-between bg-slate-50 px-4 shadow-md">
       <div className="flex-1">
         <Image
           src="/lidianeVerticalLogo.svg"
