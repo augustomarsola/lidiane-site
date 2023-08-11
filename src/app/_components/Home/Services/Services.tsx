@@ -4,30 +4,42 @@ import { CaretRight } from '@phosphor-icons/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import Image from 'next/image'
 
-export function Services() {
+type ServiceImageProps = {
+  description: string
+  id: string
+  imgUrl: string
+}
+
+type ServicesProps = {
+  images: ServiceImageProps[]
+}
+
+export function Services({ images }: ServicesProps) {
   return (
-    <section className="flex items-center justify-center gap-6 p-8">
-      <div className="max-w-md">
+    <section
+      className="flex items-center justify-center gap-8 p-8"
+      id="servicos"
+    >
+      <div className="max-w-md rounded border-8 border-gray-200 shadow-xl">
         <Swiper
-          spaceBetween={50}
           slidesPerView={1}
-          // autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           loop
           modules={[Autoplay]}
         >
-          <SwiperSlide>
-            <div className="h-24 w-24">Alo1</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="h-24 w-24">Alo2</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="h-24 w-24">Alo3</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="h-24 w-24">Alo4</div>
-          </SwiperSlide>
+          {images.map((image) => (
+            <SwiperSlide key={image.id}>
+              <Image
+                src={image.imgUrl}
+                alt={image.description}
+                width={500}
+                height={100}
+                className="h-64 object-cover"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div>
