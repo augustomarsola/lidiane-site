@@ -19,10 +19,10 @@ type ServicesProps = {
 export function Services({ images }: ServicesProps) {
   return (
     <section
-      className="flex items-center justify-center gap-8 p-8"
+      className="flex items-center justify-center gap-8 bg-services-image bg-cover bg-fixed bg-center bg-no-repeat p-8"
       id="servicos"
     >
-      <div className="max-w-md rounded border-8 border-gray-200 shadow-xl">
+      <div className="outline-100 max-w-md rounded border-8 border-transparent shadow-2xl outline outline-slate-300">
         <Swiper
           slidesPerView={1}
           autoplay={{ delay: 4000, disableOnInteraction: false }}
